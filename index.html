@@ -1,61 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>To Do List</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="to-do-component">
-
-        <div class="new-to-do-details">
-            <div class="input-container">
-                <label for="input-container">*Title</label>
-                <input type="text" class="new-input-to-do" id="new-title">
-            </div>
-
-            <div class="input-container">
-                <label for="input-container">*Assigned To</label>
-                <input type="text"  class="new-input-to-do" id="new-title">
-            </div>
-
-            <div class="input-container">
-                <label for="input-container">*Due Date</label>
-                <input type="text"  class="new-input-to-do" id="new-due-date">
-            </div>
-
-
-
-            <div class="input-container">
-                <label for="input-container">*Due Date</label>
-                <textarea  id="new-title"  class="new-input-to-do">
-            </div>
+      <div class="new-to-do-container">
+        <h2>New To Do</h2>
+        <div class="input-container">
+          <label for="input-container">*Title</label>
+          <input type="text" class="new-input-to-do" id="new-title" />
         </div>
 
-
-
-        <div class="to-do-list-container">
-            <h2 class="to-do-list-title">My To Do List, I keep Forgeting</h2>
-
-            <div class="to-do-list">
-                 <div class="to-do-item">
-                     <div class="to-do-item-column">
-                        <h3 class="to-do-item-title">I am the title</h3>
-                        <span class="to-do-due-date">I am the date</span>
-   
-                        <span class="to-do-assigned-to">I am doing it </span>
-                        <p class="to-do-item-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, enim magni, culpa hic maxime quidem illum itaque consequatur aperiam laudantium architecto non impedit maiores autem saepe minima quibusdam explicabo. Iure! </p>
-                     </div>
-                     <div class="to-do-item-column">
-                         <button>Complete</button>
-                         <button>Delete</button>
-                     </div>
-                 </div>   
-            </div>
+        <div class="input-container">
+          <label for="input-container">*Assigned To</label>
+          <input type="text" class="new-input-to-do" id="new-title" />
         </div>
 
+        <div class="input-container">
+          <label for="input-container">*Due Date</label>
+          <input type="text" class="new-input-to-do" id="new-due-date" />
+        </div>
 
+        <div class="input-container">
+          <label for="input-container">*Description</label>
+          <textarea id="new-title" class="new-input-to-do"></textarea>
+        </div>
+        <div class="button-container">
+          <button class="new-to-do-btn save">Save</button>
+          <button class="new-to-do-btn calcel">clear</button>
+        </div>
+      </div>
+
+      <div class="to-do-list-container">
+        <h2 class="to-do-list-title">My To Do List, I keep Forgetting</h2>
+
+        <div class="to-do-list">
+          <div class="to-do-item">
+            <div class="to-do-item-column">
+              <h3 class="to-do-item-title">I am the title</h3>
+              <span class="to-do-due-date">I am the date</span>
+
+              <span class="to-do-assigned-to">I am doing it </span>
+              <p class="to-do-item-description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Eligendi, enim magni, culpa hic maxime quidem illum itaque
+                consequatur aperiam laudantium architecto non impedit maiores
+                autem saepe minima quibusdam explicabo. Iure!
+              </p>
+            </div>
+            <div class="to-do-item-column">
+              <button>Complete</button>
+              <button>Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    
-</body>
+  </body>
 </html>

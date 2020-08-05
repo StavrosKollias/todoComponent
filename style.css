@@ -1,0 +1,120 @@
+:root {
+  --lightBlue: #6969e6;
+  --red: #ee2d2d;
+  --green: #008000;
+  --greenBlue: #128a7a;
+  --yellow: #ffff00;
+  --white: #ffffff;
+  --black: #000000;
+  --lightGray: #ebebe7;
+  --fontSizeDom: 16px;
+  --marginNone: 0;
+  --full_width: 100%;
+  --toDoComponent_border-top: 0.5em;
+  --toDoComponent_width: 100%;
+  --toDoComponent_max-width: 65em;
+  --toDoComponent_padding: 0.5em;
+
+  --newTodoContainer_width: 90%;
+  --newTodoContainer_max-width: 50em;
+
+  --toDoIpnut: 0.4em;
+  --todoInput_max-width: 50em;
+}
+
+body {
+  margin: var(--marginNone);
+  font-size: var(--fontSizeDom);
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--lightGray);
+  min-height: 100vh;
+}
+
+button {
+  display: inline-block;
+  width: 6em;
+  padding: 1em;
+  color: var(--white);
+  border: none;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  cursor: pointer;
+  box-shadow: 0 0 0.2em var(--black);
+}
+
+.save {
+  background-color: var(--green);
+}
+.calcel {
+  background-color: var(--red);
+}
+
+.to-do-component {
+  background-color: var(--white);
+  border-top: var(--toDoComponent_border-top) solid var(--lightBlue);
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  width: calc(var(--toDoComponent_width) - 2 * var(--toDoComponent_padding));
+  max-width: calc(
+    var(--toDoComponent_max-width) - 2 * var(--toDoComponent_padding)
+  );
+  padding: var(--toDoComponent_padding);
+  height: auto;
+}
+
+.new-to-do-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  width: calc(var(--newTodoContainer_width) - 2 * var(--toDoComponent_padding));
+  max-width: (
+    var(--newTodoContainer_max-width) - 2 * var(--toDoComponent_padding)
+  );
+  padding: var(--toDoComponent_padding);
+}
+
+.to-do-list-container {
+  padding: 2em;
+  border-top: 0.05em solid black;
+}
+
+.to-do-list {
+  width: var(--full_width);
+}
+
+.to-do-list-title {
+  text-align: center;
+}
+
+.to-do-item {
+  display: flex;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: calc(var(--full_width) - 2 * var(--toDoComponent_padding));
+  padding: var(--toDoComponent_padding);
+  height: auto;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  width: calc(var(--full_width) - 2 * var(--toDoComponent_padding));
+  padding: var(--toDoComponent_padding);
+  height: auto;
+}
+
+.new-input-to-do {
+  max-width: calc(var(--todoInput_max-width) - var(--toDoIpnut));
+  padding: var(--toDoIpnut);
+  transition: border 0.35s ease-in-out;
+}
+
+.new-input-to-do:focus {
+  border-bottom: 0.5em solid var(--greenBlue);
+}
