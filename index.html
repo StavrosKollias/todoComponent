@@ -17,21 +17,29 @@
 
         <div class="input-container">
           <label for="input-container">*Assigned To</label>
-          <input type="text" class="new-input-to-do" id="new-title" />
+          <input type="text" class="new-input-to-do" id="new-name" />
         </div>
 
         <div class="input-container">
           <label for="input-container">*Due Date</label>
-          <input type="text" class="new-input-to-do" id="new-due-date" />
+          <input type="date" class="new-input-to-do" id="new-due-date" />
         </div>
 
         <div class="input-container">
           <label for="input-container">*Description</label>
-          <textarea id="new-title" class="new-input-to-do"></textarea>
+          <textarea
+            id="new-description"
+            class="new-input-to-do"
+            oninput="handleTextAreaHeight(this)"
+          ></textarea>
         </div>
         <div class="button-container">
-          <button class="new-to-do-btn save">Save</button>
-          <button class="new-to-do-btn calcel">clear</button>
+          <button class="new-to-do-btn save" onclick="handleSaveNewItem()">
+            Save
+          </button>
+          <button class="new-to-do-btn calcel" onclick="handleClearForm()">
+            clear
+          </button>
         </div>
       </div>
 
@@ -53,12 +61,15 @@
               </p>
             </div>
             <div class="to-do-item-column">
-              <button>Complete</button>
-              <button>Delete</button>
+              <button class="save">Complete</button>
+              <button class="calcel" onclick="deleteElementFromItsParent(this)">
+                Delete
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </body>
+  <script src="./todo.js"></script>
 </html>

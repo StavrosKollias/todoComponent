@@ -2,7 +2,7 @@
   --lightBlue: #6969e6;
   --red: #ee2d2d;
   --green: #008000;
-  --greenBlue: #128a7a;
+  --greenBlue: #0f6d74;
   --yellow: #ffff00;
   --white: #ffffff;
   --black: #000000;
@@ -20,6 +20,11 @@
 
   --toDoIpnut: 0.4em;
   --todoInput_max-width: 50em;
+
+  --todoInput_focus-border-bottom: 0.3em;
+
+  --toDoListContainer_padding: 2em;
+  --toDoListContainer_border-top: 0.05em;
 }
 
 body {
@@ -57,11 +62,8 @@ button:hover {
   display: flex;
   margin: auto;
   flex-direction: column;
-  width: calc(var(--toDoComponent_width) - 2 * var(--toDoComponent_padding));
-  max-width: calc(
-    var(--toDoComponent_max-width) - 2 * var(--toDoComponent_padding)
-  );
-  padding: var(--toDoComponent_padding);
+  width: var(--toDoComponent_width);
+  max-width: var(--toDoComponent_max-width);
   height: auto;
 }
 
@@ -74,23 +76,6 @@ button:hover {
     var(--newTodoContainer_max-width) - 2 * var(--toDoComponent_padding)
   );
   padding: var(--toDoComponent_padding);
-}
-
-.to-do-list-container {
-  padding: 2em;
-  border-top: 0.05em solid black;
-}
-
-.to-do-list {
-  width: var(--full_width);
-}
-
-.to-do-list-title {
-  text-align: center;
-}
-
-.to-do-item {
-  display: flex;
 }
 
 .input-container {
@@ -116,5 +101,28 @@ button:hover {
 }
 
 .new-input-to-do:focus {
-  border-bottom: 0.5em solid var(--greenBlue);
+  border-bottom: var(--todoInput_focus-border-bottom) solid var(--greenBlue);
+}
+
+.to-do-list-container {
+  padding: var(--toDoListContainer_padding);
+  border-top: var(--toDoListContainer_border-top) solid var(--lightBlue);
+}
+
+.to-do-list {
+  width: var(--full_width);
+}
+
+.to-do-list-title {
+  text-align: center;
+}
+
+.to-do-item {
+  display: flex;
+  flex-wrap: wrap;
+  box-shadow: 0 0 0.3em var(--black);
+  padding: 1em;
+}
+
+.to-do-item-column {
 }
