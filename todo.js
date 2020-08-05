@@ -30,7 +30,7 @@ function deleteElementFromItsParent(element) {
   removeChildFromElement(parent, child);
 }
 
-// ----functions
+// ----functions-----------------
 
 function cloneLastChildFromElement(parent) {
   const newClone = parent.children[parent.children.length - 1].cloneNode(true);
