@@ -156,6 +156,10 @@ button:hover {
   text-decoration: line-through;
 }
 
+.stats-to-do {
+  padding: 1em;
+}
+
 .template {
   display: none;
 }

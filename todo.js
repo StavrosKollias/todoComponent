@@ -22,18 +22,39 @@ function handleSaveNewItem() {
     changeTextToElement(newToDoDetails.children[1], newDate);
     changeTextToElement(newToDoDetails.children[2], newNameInput.value);
     changeTextToElement(newToDoDetails.children[3], newDescriptionInput.value);
-
     addChildToELement(toDoList, newToDo);
-
     clearAllInputsNewToDo();
+    generateStats();
   }
 }
 
-function formatDate(dateStr) {
-  const splitDate = dateStr.split("-");
-  const newDate = splitDate[2] + "-" + splitDate[1] + "-" + splitDate[0];
-  return newDate;
+function deleteElementFromItsParent(element) {
+  const parent = element.parentElement.parentElement.parentElement;
+  const child = element.parentElement.parentElement;
+  console.log(parent);
+  removeChildFromElement(parent, child);
+  generateStats();
 }
+
+function handleCompleteToDo(element) {
+  const todoItem = element.parentElement.parentElement;
+  addClassToElement(todoItem, "completed");
+  addClassToElement(element, "unmark");
+  changeTextToElement(element, "Unmark");
+  addOnclickToElement(element, hadleResurrectTodo);
+  generateStats();
+}
+
+function hadleResurrectTodo(element) {
+  const todoItem = element.parentElement.parentElement;
+  removeClassFromElement(todoItem, "completed");
+  removeClassFromElement(element, "unmark");
+  changeTextToElement(element, "Complete");
+  addOnclickToElement(element, handleCompleteToDo);
+  generateStats();
+}
+
+// --------functions------------functions------functions-------------------
 
 function forEachThroughEelements(list, operationFunction) {
   var result = "";
@@ -44,30 +65,32 @@ function forEachThroughEelements(list, operationFunction) {
   return result;
 }
 
-function deleteElementFromItsParent(element) {
-  const parent = element.parentElement.parentElement.parentElement;
-  const child = element.parentElement.parentElement;
-  console.log(parent);
-  removeChildFromElement(parent, child);
+function generateStats() {
+  const completedStats = document.getElementById("completed-stats");
+  const activeStats = document.getElementById("active-stats");
+
+  const todoItems = document.querySelectorAll(".to-do-item");
+  const toDoItemsLength = todoItems.length;
+
+  const completeTasks = document.querySelectorAll(".completed");
+  const completedTaskLength = completeTasks.length;
+
+  changeTextToElement(
+    completedStats,
+    `${completedTaskLength}/${toDoItemsLength}`
+  );
+
+  changeTextToElement(
+    activeStats,
+    `${toDoItemsLength - completedTaskLength}/${toDoItemsLength}`
+  );
 }
 
-function handleCompleteToDo(element) {
-  const todoItem = element.parentElement.parentElement;
-  addClassToElement(todoItem, "completed");
-  addClassToElement(element, "unmark");
-  changeTextToElement(element, "Unmark");
-  addOnclickToElement(element, hadleResurectTodo);
+function formatDate(dateStr) {
+  const splitDate = dateStr.split("-");
+  const newDate = splitDate[2] + "-" + splitDate[1] + "-" + splitDate[0];
+  return newDate;
 }
-
-function hadleResurectTodo(element) {
-  const todoItem = element.parentElement.parentElement;
-  removeClassFromElement(todoItem, "completed");
-  removeClassFromElement(element, "unmark");
-  changeTextToElement(element, "Complete");
-  addOnclickToElement(element, handleCompleteToDo);
-}
-
-// --------functions------------functions------functions-------------------
 
 function addOnclickToElement(element, functionTrigered) {
   element.onclick = () => {

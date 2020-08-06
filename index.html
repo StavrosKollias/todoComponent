@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="to-do-component">
-      <div class="to-do-item template">
+      <div class="template">
         <div class="to-do-item-column">
           <h3 class="to-do-item-title">I am the title</h3>
           <span class="to-do-due-date">I am the date</span>
@@ -68,7 +68,15 @@
 
       <div class="to-do-list-container">
         <h2 class="to-do-list-title">My To Do List, I keep Forgetting!!!!</h2>
-
+        <div class="stats-to-do">
+          <h4 class="stats-title">Stats</h4>
+          <label for="completed">Completed:</label>
+          <span class="stats-item" name="completed" id="completed-stats">
+            0/0</span
+          >
+          <label for="completed">Active:</label>
+          <span class="stats-item" id="active-stats"> 0/0</span>
+        </div>
         <div class="to-do-list"></div>
       </div>
     </div>
