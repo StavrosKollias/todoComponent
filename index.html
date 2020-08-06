@@ -8,6 +8,27 @@
   </head>
   <body>
     <div class="to-do-component">
+      <div class="to-do-item template">
+        <div class="to-do-item-column">
+          <h3 class="to-do-item-title">I am the title</h3>
+          <span class="to-do-due-date">I am the date</span>
+
+          <span class="to-do-assigned-to">I am doing it </span>
+          <p class="to-do-item-description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
+            enim magni, culpa hic maxime quidem illum itaque consequatur aperiam
+            laudantium architecto non impedit maiores autem saepe minima
+            quibusdam explicabo. Iure!
+          </p>
+        </div>
+        <div class="to-do-item-column">
+          <button class="save">Complete</button>
+          <button class="calcel" onclick="deleteElementFromItsParent(this)">
+            Delete
+          </button>
+        </div>
+      </div>
+
       <div class="new-to-do-container">
         <h2>New To Do</h2>
         <div class="input-container">

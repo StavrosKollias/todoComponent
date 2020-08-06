@@ -7,9 +7,10 @@ function handleSaveNewItem() {
   const newNameInput = document.getElementById("new-name");
   const newDateInput = document.getElementById("new-due-date");
   const newDescriptionInput = document.getElementById("new-description");
-
   const toDoList = document.querySelector(".to-do-list");
-  const newToDo = cloneLastChildFromElement(toDoList);
+  const toDoItem = document.querySelector(".template");
+  const newToDo = cloneElement(toDoItem);
+  changeClassFromElement(newToDo, "to-do-item");
   const newToDoDetails = newToDo.children[0];
   changeTextToElement(newToDoDetails.children[0], newTitleInput.value);
   changeTextToElement(newToDoDetails.children[1], newDateInput.value);
@@ -32,8 +33,12 @@ function deleteElementFromItsParent(element) {
 
 // ----functions-----------------
 
-function cloneLastChildFromElement(parent) {
-  const newClone = parent.children[parent.children.length - 1].cloneNode(true);
+function changeClassFromElement(element, className) {
+  element.className = className;
+}
+
+function cloneElement(element) {
+  const newClone = element.cloneNode(true);
   return newClone;
 }
 

@@ -122,7 +122,12 @@ button:hover {
   flex-wrap: wrap;
   box-shadow: 0 0 0.3em var(--black);
   padding: 1em;
+  justify-content: space-between;
 }
 
-.to-do-item-column {
+.template {
+  display: none;
 }
+
+/* .to-do-item-column {
+} */
