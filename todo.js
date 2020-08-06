@@ -54,7 +54,7 @@ function hadleResurrectTodo(element) {
   generateStats();
 }
 
-function onChaneDate(element) {
+function onClickDate(element) {
   const dateFormatMin = getTodaysDateFormat();
   element.min = dateFormatMin.inputFormat;
 }
