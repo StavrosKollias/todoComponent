@@ -25,6 +25,7 @@ function handleSaveNewItem() {
     addChildToELement(toDoList, newToDo);
     clearAllInputsNewToDo();
     generateStats();
+    compareSpansWithTodaysDate();
   }
 }
 
@@ -34,6 +35,7 @@ function deleteElementFromItsParent(element) {
   console.log(parent);
   removeChildFromElement(parent, child);
   generateStats();
+  compareSpansWithTodaysDate();
 }
 
 function handleCompleteToDo(element) {
@@ -43,6 +45,7 @@ function handleCompleteToDo(element) {
   changeTextToElement(element, "Unmark");
   addOnclickToElement(element, hadleResurrectTodo);
   generateStats();
+  compareSpansWithTodaysDate();
 }
 
 function hadleResurrectTodo(element) {
@@ -52,6 +55,7 @@ function hadleResurrectTodo(element) {
   changeTextToElement(element, "Complete");
   addOnclickToElement(element, handleCompleteToDo);
   generateStats();
+  compareSpansWithTodaysDate();
 }
 
 function onClickDate(element) {
@@ -61,23 +65,43 @@ function onClickDate(element) {
 
 // --------functions------------functions------functions-------------------
 
-function compareDate() {
-  const dateFormatMin = getTodaysDateFormat();
+compareSpansWithTodaysDate();
+
+function compareSpansWithTodaysDate() {
+  const spanDatesList = document.querySelectorAll(".to-do-due-date");
+
+  forEachThroughEelements(spanDatesList, compareDate);
 }
 
-// compareDate();
+function compareDate(element) {
+  var dateFormatToday = getTodaysDateFormat();
+  dateFormatToday = dateFormatToday.spanFormat;
+  const splitDateToday = dateFormatToday.split("-");
+
+  const splitDateSpanValue = element.innerText.split("-");
+
+  const month = compareNumbers(splitDateToday[0], splitDateSpanValue[0]);
+  const date = compareNumbers(splitDateToday[1], splitDateSpanValue[1]);
+  const year = compareNumbers(splitDateToday[2], splitDateSpanValue[2]);
+
+  month && date && year
+    ? (element.style.color = "red")
+    : (element.style.color = "black");
+}
+
+function compareNumbers(a, b) {
+  return Number(a) >= Number(b);
+}
 
 function getTodaysDateFormat() {
   const todaysDate = new Date();
   var month = todaysDate.getMonth() + 1;
   month >= 10 ? month : (month = "0" + month);
-  console.log(month);
-  var dayOfMonth = todaysDate.getDate() + 10;
+  var dayOfMonth = todaysDate.getDate();
   dayOfMonth >= 10 ? dayOfMonth : (dayOfMonth = "0" + dayOfMonth);
   const year = todaysDate.getFullYear();
   const dateFormatInput = year + "-" + month + "-" + dayOfMonth;
   const spanDateFormat = dayOfMonth + "-" + month + "-" + year;
-  console.log(dateFormatInput);
   return { inputFormat: dateFormatInput, spanFormat: spanDateFormat };
 }
 
