@@ -6,8 +6,9 @@ function handleSaveNewItem() {
   const newTitleInput = document.getElementById("new-title");
   const newNameInput = document.getElementById("new-name");
   const newDateInput = document.getElementById("new-due-date");
-  const newDescriptionInput = document.getElementById("new-description");
 
+  const newDescriptionInput = document.getElementById("new-description");
+  const newDate = formatDate(newDateInput.value);
   const inputs = document.querySelectorAll(".new-input-to-do");
   const result = forEachThroughEelements(inputs, validateInputsNotEmpty);
 
@@ -18,7 +19,7 @@ function handleSaveNewItem() {
     changeClassFromElement(newToDo, "to-do-item");
     const newToDoDetails = newToDo.children[0];
     changeTextToElement(newToDoDetails.children[0], newTitleInput.value);
-    changeTextToElement(newToDoDetails.children[1], newDateInput.value);
+    changeTextToElement(newToDoDetails.children[1], newDate);
     changeTextToElement(newToDoDetails.children[2], newNameInput.value);
     changeTextToElement(newToDoDetails.children[3], newDescriptionInput.value);
 
@@ -26,6 +27,12 @@ function handleSaveNewItem() {
 
     clearAllInputsNewToDo();
   }
+}
+
+function formatDate(dateStr) {
+  const splitDate = dateStr.split("-");
+  const newDate = splitDate[2] + "-" + splitDate[1] + "-" + splitDate[0];
+  return newDate;
 }
 
 function forEachThroughEelements(list, operationFunction) {
@@ -44,7 +51,29 @@ function deleteElementFromItsParent(element) {
   removeChildFromElement(parent, child);
 }
 
+function handleCompleteToDo(element) {
+  const todoItem = element.parentElement.parentElement;
+  addClassToElement(todoItem, "completed");
+  addClassToElement(element, "unmark");
+  changeTextToElement(element, "Unmark");
+  addOnclickToElement(element, hadleResurectTodo);
+}
+
+function hadleResurectTodo(element) {
+  const todoItem = element.parentElement.parentElement;
+  removeClassFromElement(todoItem, "completed");
+  removeClassFromElement(element, "unmark");
+  changeTextToElement(element, "Complete");
+  addOnclickToElement(element, handleCompleteToDo);
+}
+
 // --------functions------------functions------functions-------------------
+
+function addOnclickToElement(element, functionTrigered) {
+  element.onclick = () => {
+    functionTrigered(element);
+  };
+}
 
 function isEmptyString(str) {
   return str == "";

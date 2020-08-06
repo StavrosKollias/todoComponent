@@ -7,6 +7,7 @@
   --white: #ffffff;
   --black: #000000;
   --lightGray: #ebebe7;
+  --gray: #a09e9e;
   --fontSizeDom: 16px;
   --marginNone: 0;
   --full_width: 100%;
@@ -35,6 +36,11 @@ body {
   min-height: 100vh;
 }
 
+textarea {
+  resize: none;
+  min-height: 10em;
+}
+
 button {
   display: inline-block;
   width: 6em;
@@ -52,8 +58,13 @@ button:hover {
 .save {
   background-color: var(--green);
 }
+
 .calcel {
   background-color: var(--red);
+}
+
+.unmark {
+  background-color: var(--lightBlue);
 }
 
 .to-do-component {
@@ -92,6 +103,7 @@ button:hover {
   width: calc(var(--full_width) - 2 * var(--toDoComponent_padding));
   padding: var(--toDoComponent_padding);
   height: auto;
+  text-decoration: none !important;
 }
 
 .new-input-to-do {
@@ -124,12 +136,24 @@ button:hover {
 }
 
 .to-do-item {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   box-shadow: 0 0 0.3em var(--black);
   padding: 1em;
   justify-content: space-between;
   margin: 0px 0 1em 0;
+}
+
+.to-do-due-date {
+  position: absolute;
+  top: 0.3em;
+  right: 1em;
+}
+
+.completed {
+  background-color: var(--gray);
+  text-decoration: line-through;
 }
 
 .template {
