@@ -100,8 +100,14 @@ button:hover {
   transition: border 0.35s ease-in-out;
 }
 
+.error-input {
+  box-shadow: 0 0 0.4em var(--red);
+  border: 2px solid var(--white);
+}
+
 .new-input-to-do:focus {
   border-bottom: var(--todoInput_focus-border-bottom) solid var(--greenBlue);
+  outline: none;
 }
 
 .to-do-list-container {
@@ -123,11 +129,9 @@ button:hover {
   box-shadow: 0 0 0.3em var(--black);
   padding: 1em;
   justify-content: space-between;
+  margin: 0px 0 1em 0;
 }
 
 .template {
   display: none;
 }
-
-/* .to-do-item-column {
-} */
