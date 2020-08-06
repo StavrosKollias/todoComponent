@@ -151,6 +151,10 @@ button:hover {
   right: 1em;
 }
 
+.to-do-item-description {
+  word-break: break-all;
+}
+
 .completed {
   background-color: var(--gray);
   text-decoration: line-through;

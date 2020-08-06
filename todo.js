@@ -54,7 +54,32 @@ function hadleResurrectTodo(element) {
   generateStats();
 }
 
+function onChaneDate(element) {
+  const dateFormatMin = getTodaysDateFormat();
+  element.min = dateFormatMin.inputFormat;
+}
+
 // --------functions------------functions------functions-------------------
+
+function compareDate() {
+  const dateFormatMin = getTodaysDateFormat();
+}
+
+// compareDate();
+
+function getTodaysDateFormat() {
+  const todaysDate = new Date();
+  var month = todaysDate.getMonth() + 1;
+  month >= 10 ? month : (month = "0" + month);
+  console.log(month);
+  var dayOfMonth = todaysDate.getDate() + 10;
+  dayOfMonth >= 10 ? dayOfMonth : (dayOfMonth = "0" + dayOfMonth);
+  const year = todaysDate.getFullYear();
+  const dateFormatInput = year + "-" + month + "-" + dayOfMonth;
+  const spanDateFormat = dayOfMonth + "-" + month + "-" + year;
+  console.log(dateFormatInput);
+  return { inputFormat: dateFormatInput, spanFormat: spanDateFormat };
+}
 
 function forEachThroughEelements(list, operationFunction) {
   var result = "";
